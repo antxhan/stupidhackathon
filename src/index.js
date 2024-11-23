@@ -1,4 +1,5 @@
 import "./global.css";
+import Terms from "./terms/terms";
 
 const MAIN = document.querySelector("main");
 
@@ -9,17 +10,13 @@ document.querySelectorAll("nav ul li button").forEach((button) => {
     });
     if (!button.classList.contains("active")) {
       button.parentNode.classList.add("active");
-      if (button.value === "projects") {
+      if (button.value === "terms") {
         MAIN.innerHTML = "";
-        // MAIN.innerHTML = Projects();
+        Terms();
       }
-      if (button.value === "about") {
+      if (button.value === "") {
         MAIN.innerHTML = "";
-        // About();
-      }
-      if (button.value === "contact") {
-        MAIN.innerHTML = "";
-        // MAIN.innerHTML = Contact();
+        // MAIN.innerHTML = Kevin();
       }
     }
   });
