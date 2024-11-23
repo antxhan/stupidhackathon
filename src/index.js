@@ -1,6 +1,7 @@
 import "./global.css";
 import Terms from "./terms/terms";
 import Unsubscribe from "./unsubscribe/unsubscribe";
+import Flash from "./flashbang/flash";
 
 const MAIN = document.querySelector("main");
 
@@ -22,6 +23,10 @@ document.querySelectorAll("nav ul li button").forEach((button) => {
       if (button.value === "unsubscribe") {
         MAIN.innerHTML = "";
         Unsubscribe();
+      }
+      if (button.value === "flash") {
+        MAIN.innerHTML = "";
+        Flash();
       }
     }
   });
