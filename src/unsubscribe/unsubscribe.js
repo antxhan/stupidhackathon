@@ -4,9 +4,6 @@ export default function Unsubscribe() {
   const main = document.querySelector("main");
   const unsubscribe = document.createElement("div");
   const buttonContainer = document.createElement("div");
-  const deleteButton = document.createElement("button");
-
-  const characters = ["a", "b", "c", "A", "B", "C", "1", "2", "3"];
 
   unsubscribe.classList.add("unsubscribe");
 
@@ -19,20 +16,11 @@ export default function Unsubscribe() {
     </form>
     <div id="confetti"></div>
     `;
-  deleteButton.textContent = "Delete";
-
-  characters.forEach((character) => {
-    const button = document.createElement("button");
-    button.textContent = character;
-    button.onclick = () => typeCharacter(character);
-    buttonContainer.appendChild(button);
-  });
-
-  deleteButton.onclick = deleteCharacter;
 
   main.appendChild(unsubscribe);
   main.appendChild(buttonContainer);
-  buttonContainer.appendChild(deleteButton);
+
+  startButtonDropping();
 }
 
 function typeCharacter(character) {
@@ -76,5 +64,32 @@ function launchConfetti() {
       Math.random() * 360
     }, 100%, 50%)`;
     confettiContainer.appendChild(confettiPiece);
+  }
+}
+
+function startButtonDropping() {
+  const buttonContainer = document.createElement("div");
+  document.body.appendChild(buttonContainer);
+  function createButton() {
+    const characters = ["a", "b", "c", "A", "B", "C", "1", "2", "3"];
+    const character = characters[Math.floor(Math.random() * characters.length)];
+    const button = document.createElement("button");
+    button.textContent = character;
+    button.onclick = () => {
+      typeCharacter(character);
+      button.remove();
+      createButton();
+    };
+    button.style.left = `${Math.random() * 100}%`;
+    button.style.fontSize = `${Math.random() * 1.5 + 0.5}rem`;
+    button.style.animationDuration = `${Math.random() * 4 + 10}s`;
+    button.onanimationend = () => {
+      button.remove();
+      createButton();
+    };
+    buttonContainer.appendChild(button);
+  }
+  for (let i = 0; i < 10; i++) {
+    createButton();
   }
 }
