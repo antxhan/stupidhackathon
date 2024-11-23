@@ -2,10 +2,9 @@ import "./global.css";
 import Terms from "./terms/terms";
 
 const MAIN = document.querySelector("main");
-   
+
 const image = document.createElement("image");
-image.src = peepo-giggle-peepo;
-   
+
 document.body.appendChild(image);
 
 document.querySelectorAll("nav ul li button").forEach((button) => {
