@@ -20,6 +20,9 @@ main:has(.terms) {
     margin: 0;
     padding: 0;
   }
+  h3 {
+    text-align: center;
+  }
   background-color: white;
   color: black;
   position: relative;

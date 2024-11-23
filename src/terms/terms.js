@@ -60,7 +60,7 @@ export default function Terms() {
   const TERMS = document.createElement("div");
   TERMS.classList.add("terms");
 
-  const pageTitle = document.createElement("h1");
+  const pageTitle = document.createElement("h2");
   pageTitle.innerText = "TOS Typer";
   TERMS.appendChild(pageTitle);
   const description = document.createElement("p");
@@ -72,7 +72,7 @@ export default function Terms() {
   const termsWindow = document.createElement("div");
   termsWindow.classList.add("terms-window");
 
-  const title = document.createElement("h2");
+  const title = document.createElement("h3");
   title.innerText = "Terms of Service";
   termsWindow.appendChild(title);
 
