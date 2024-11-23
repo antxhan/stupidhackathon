@@ -100,7 +100,7 @@ function startButtonDropping() {
       button.remove();
       createButton();
     };
-    button.style.left = `${Math.random() * 100}%`;
+    button.style.left = `${Math.random() * 90}%`;
     button.style.fontSize = `${Math.random() * 1.5 + 0.5}rem`;
     button.style.animationDuration = `${Math.random() * 4 + 10}s`;
     button.tabIndex = -1;
