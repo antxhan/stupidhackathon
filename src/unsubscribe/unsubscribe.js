@@ -8,21 +8,30 @@ export default function Unsubscribe() {
   unsubscribe.id = "unsubscribe";
   buttonContainer.id = "button-container";
 
+  const randomUsername = generateRandomUsername();
   unsubscribe.innerHTML = `
-    <h1>Unsubscribe</h1>
-    <p id="match">AbC123</p>
+    <h1>Unsubscription form</h1>
+    <p id="match">${randomUsername}</p>
     <form onSubmit="return false;">
       <input type="text" id="unsubscribeInput" readonly>
-      <p id="errorMessage" style="color: red;"></p>
     </form>
     <div id="confetti"></div>
   `;
 
-  main.appendChild(testButton);
   main.appendChild(unsubscribe);
   main.appendChild(buttonContainer);
 
   startButtonDropping();
+}
+
+function generateRandomUsername() {
+  const adjectives = ["Cool", "Fast", "Smart", "Strong", "Funny", "Brave"];
+  const nouns = ["Lion", "Tiger", "Bear", "Eagle", "Shark", "Wolf"];
+  const randomAdjective =
+    adjectives[Math.floor(Math.random() * adjectives.length)];
+  const randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
+  const randomNumber = Math.floor(Math.random() * 1000);
+  return `${randomAdjective}${randomNoun}${randomNumber}`;
 }
 
 function typeCharacter(character) {
@@ -77,7 +86,11 @@ function startButtonDropping() {
   const buttonContainer = document.querySelector("#button-container");
   console.log(buttonContainer);
   function createButton() {
-    const characters = ["a", "b", "c", "A", "B", "C", "1", "2", "3"];
+    const characters = [
+      ..."abcdefghijklmnopqrstuvwxyz",
+      ..."ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+      ..."0123456789",
+    ];
     const character = characters[Math.floor(Math.random() * characters.length)];
     const button = document.createElement("button");
     button.classList.add("character-btn");
@@ -97,7 +110,7 @@ function startButtonDropping() {
     };
     buttonContainer.appendChild(button);
   }
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 50; i++) {
     createButton();
   }
 }
