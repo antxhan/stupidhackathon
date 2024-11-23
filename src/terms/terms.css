@@ -20,6 +20,8 @@ main:has(.terms) {
     margin: 0;
     padding: 0;
   }
+  background-color: white;
+  color: black;
   position: relative;
   width: min(500px, 100%);
   padding: 1rem;
