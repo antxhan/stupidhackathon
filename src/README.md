@@ -1,1 +1,1 @@
-Stupid Components for the Stupid Hackathon
+Stupid Components for Stupid Hackathon
