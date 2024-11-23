@@ -25,6 +25,8 @@ button {
   animation: confettiDrop linear forwards;
 }
 
+.input-error { background-color: red; }
+
 @keyframes buttonDrop {
   to {
     transform: translateY(100vh);

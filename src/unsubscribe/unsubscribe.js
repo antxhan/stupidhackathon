@@ -4,8 +4,10 @@ export default function Unsubscribe() {
   const main = document.querySelector("main");
   const unsubscribe = document.createElement("div");
   const buttonContainer = document.createElement("div");
+  const testButton = document.createElement("button");
 
-  unsubscribe.classList.add("unsubscribe");
+  unsubscribe.id = "unsubscribe";
+  buttonContainer.id = "button-container";
 
   unsubscribe.innerHTML = `
     <h1>Unsubscribe</h1>
@@ -15,12 +17,19 @@ export default function Unsubscribe() {
       <p id="errorMessage" style="color: red;"></p>
     </form>
     <div id="confetti"></div>
-    `;
+  `;
 
+  main.appendChild(testButton);
   main.appendChild(unsubscribe);
   main.appendChild(buttonContainer);
 
   startButtonDropping();
+
+  testButton.textContent = "TEST";
+  testButton.onclick = () => {
+    removeAllButtons();
+    launchConfetti();
+  };
 }
 
 function typeCharacter(character) {
@@ -31,28 +40,31 @@ function typeCharacter(character) {
   inputField.value += character;
 
   if (matchValue.indexOf(inputField.value) !== 0) {
-    // Reset if the input doesn't match the start of the matchValue
     inputField.value = "";
-    errorMessage.textContent = "Wrong character! The input has been reset.";
+    inputField.classList.add("input-error");
+    setTimeout(() => {
+      inputField.classList.remove("input-error");
+    }, 1000);
   } else {
-    // Clear the error message if the input is correct
-    errorMessage.textContent = "";
     if (inputField.value === matchValue) {
-      // Show celebration if the input matches the matchValue
+      removeAllButtons();
       launchConfetti();
     }
   }
 }
 
-function deleteCharacter() {
-  const inputField = document.getElementById("unsubscribeInput");
-  inputField.value = inputField.value.slice(0, -1);
-  const errorMessage = document.getElementById("errorMessage");
-  errorMessage.textContent = ""; // Clear the error message when a character is deleted
+function removeAllButtons() {
+  const buttonContainer = document.querySelector("#button-container");
+  buttonContainer.innerHTML = "";
 }
 
 function launchConfetti() {
   const confettiContainer = document.getElementById("confetti");
+  const inputField = document.getElementById("unsubscribeInput");
+  if (!confettiContainer) {
+    console.error("Confetti container not found!");
+    return;
+  }
   confettiContainer.innerHTML = "";
   for (let i = 0; i < 100; i++) {
     const confettiPiece = document.createElement("div");
@@ -65,11 +77,12 @@ function launchConfetti() {
     }, 100%, 50%)`;
     confettiContainer.appendChild(confettiPiece);
   }
+  inputField.style.backgroundColor = "green";
 }
 
 function startButtonDropping() {
-  const buttonContainer = document.createElement("div");
-  document.body.appendChild(buttonContainer);
+  const buttonContainer = document.querySelector("#button-container");
+  console.log(buttonContainer);
   function createButton() {
     const characters = ["a", "b", "c", "A", "B", "C", "1", "2", "3"];
     const character = characters[Math.floor(Math.random() * characters.length)];
@@ -90,7 +103,7 @@ function startButtonDropping() {
     };
     buttonContainer.appendChild(button);
   }
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 20; i++) {
     createButton();
   }
 }
