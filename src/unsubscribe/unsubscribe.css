@@ -1,4 +1,4 @@
-button {
+.character-btn {
   position: absolute;
   top: 0;
   animation-name: buttonDrop;
