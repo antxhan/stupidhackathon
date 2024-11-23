@@ -1,5 +1,6 @@
 import "./global.css";
 import Terms from "./terms/terms";
+import Unsubscribe from "./unsubscribe/unsubscribe";
 
 const MAIN = document.querySelector("main");
    
@@ -19,9 +20,9 @@ document.querySelectorAll("nav ul li button").forEach((button) => {
         MAIN.innerHTML = "";
         Terms();
       }
-      if (button.value === "") {
+      if (button.value === "unsubscribe") {
         MAIN.innerHTML = "";
-        // MAIN.innerHTML = Kevin();
+        Unsubscribe();
       }
     }
   });
