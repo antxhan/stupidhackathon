@@ -1,0 +1,9 @@
+:root {
+  --clr-neutral-500: rgb(93, 93, 93);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
