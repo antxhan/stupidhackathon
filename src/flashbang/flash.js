@@ -1,11 +1,13 @@
 // Create and export the page elements dynamically
 export function createPageElements() {
-    // Create and append the button to start taking photos (though it's no longer needed)
-    const startButton = document.createElement('button');
-    startButton.id = 'start-button';
-    startButton.textContent = 'Start Taking Photos';
-    startButton.style.display = 'none'; // Hide button as we no longer need it
-    document.body.appendChild(startButton);
+    // h2 element to display the title of the page
+    const h2 = document.createElement('h2');
+    h2.innerText = "Flashies";
+    document.body.appendChild(h2);
+
+    const p = document.createElement('p');
+    p.innerText = "The photo version of cookies, but brighter. - Most websites track you with cookies. This one? It tracks you with photos! Each flash captures a moment of you while browsing, creating a unique visual 'footprint.' Don’t worry—it’s for research... we promise!";
+    document.body.appendChild(p);
   
     // Create the container for the video and photo elements
     const container = document.createElement('div');
