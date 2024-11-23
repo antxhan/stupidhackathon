@@ -1,13 +1,15 @@
+import './flash.css';
 // Create and export the page elements dynamically
 export function createPageElements() {
+    const main = document.querySelector('main');
     // h2 element to display the title of the page
     const h2 = document.createElement('h2');
     h2.innerText = "Flashies";
-    document.body.appendChild(h2);
+    document.querySelector('main').appendChild(h2);
 
     const p = document.createElement('p');
     p.innerText = "The photo version of cookies, but brighter. - Most websites track you with cookies. This one? It tracks you with photos! Each flash captures a moment of you while browsing, creating a unique visual 'footprint.' Don’t worry—it’s for research... we promise!";
-    document.body.appendChild(p);
+    document.querySelector('main').appendChild(p);
   
     // Create the container for the video and photo elements
     const container = document.createElement('div');
@@ -29,7 +31,10 @@ export function createPageElements() {
     photo.alt = 'The screen capture will appear in this box.';
     container.appendChild(photo);
   
-    document.body.appendChild(container);
+    
+    main.appendChild(container);
+
+
   }
   
   // Initialize the webcam feed and setup the random photo capture mechanism
