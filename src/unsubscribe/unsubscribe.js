@@ -4,7 +4,6 @@ export default function Unsubscribe() {
   const main = document.querySelector("main");
   const unsubscribe = document.createElement("div");
   const buttonContainer = document.createElement("div");
-  const testButton = document.createElement("button");
 
   unsubscribe.id = "unsubscribe";
   buttonContainer.id = "button-container";
@@ -24,12 +23,6 @@ export default function Unsubscribe() {
   main.appendChild(buttonContainer);
 
   startButtonDropping();
-
-  testButton.textContent = "TEST";
-  testButton.onclick = () => {
-    removeAllButtons();
-    launchConfetti();
-  };
 }
 
 function typeCharacter(character) {
