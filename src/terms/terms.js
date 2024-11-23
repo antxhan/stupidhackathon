@@ -10,11 +10,11 @@ function createOopsMessage() {
   if (existingOopsMessage) {
     existingOopsMessage.remove();
   }
-  const termsWindow = document.querySelector(".terms-window");
+  const termsContent = document.querySelector(".terms-content");
   const oopsMessage = document.createElement("span");
   oopsMessage.innerText = "Oops!";
   oopsMessage.classList.add("oops");
-  termsWindow.appendChild(oopsMessage);
+  termsContent.appendChild(oopsMessage);
   setTimeout(() => {
     oopsMessage.remove();
   }, 1000);
