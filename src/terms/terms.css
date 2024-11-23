@@ -19,7 +19,7 @@
     }
     .terms-content-typing {
       z-index: 2;
-      background-color: transparent;
+      background: transparent;
     }
     .terms-content-message {
       color: var(--clr-neutral-500);

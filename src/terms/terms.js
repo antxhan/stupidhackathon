@@ -3,9 +3,12 @@ import "./terms.css";
 let charIndex = 0;
 const message = "Hello World";
 
+function handleAccept() {}
+
 function handleInput(e) {
   if (e.target.value === "") {
     charIndex = 0;
+    e.target.value = "";
     return;
   }
   if (e.target.value.length - 1 < charIndex) {
@@ -20,6 +23,9 @@ function handleInput(e) {
     console.log("match");
   } else {
     console.log("no match");
+    charIndex = 0;
+    e.target.value = "";
+    return;
   }
   charIndex++;
 }
@@ -42,10 +48,16 @@ export default function Terms() {
   const typingTextarea = document.createElement("textarea");
   typingTextarea.classList.add("terms-content-typing");
   typingTextarea.addEventListener("input", handleInput);
+  typingTextarea.autofocus = true;
 
   const messageTextarea = document.createElement("textarea");
   messageTextarea.classList.add("terms-content-message");
   messageTextarea.innerText = message;
+
+  const termsButton = document.createElement("button");
+  termsButton.innerText = "Agree";
+  termsButton.disabled = true;
+  termsButton.addEventListener("click", handleAccept);
 
   termsContent.appendChild(typingTextarea);
   termsContent.appendChild(messageTextarea);
