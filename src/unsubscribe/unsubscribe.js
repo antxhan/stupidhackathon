@@ -10,7 +10,8 @@ export default function Unsubscribe() {
 
   const randomUsername = generateRandomUsername();
   unsubscribe.innerHTML = `
-    <h1>Unsubscription form</h1>
+    <h2>Unsubscription form</h2>
+    <p>Unsubscribing might feel tedious, but it offers a rare moment to pause and reflect on your choices. This slow, deliberate process allows you to reconsider your subscriptions, reaffirm your priorities, and take control of your digital space. As you input each character, think of it as a step towards a more intentional life. Embrace this mindful moment, and enjoy the small celebration of confetti with each correct entry. Sometimes, a little slowness is just what we need to find balance.</p>
     <p id="match">${randomUsername}</p>
     <form onSubmit="return false;">
       <input type="text" id="unsubscribeInput" readonly>

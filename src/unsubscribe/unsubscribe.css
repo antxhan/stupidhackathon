@@ -1,3 +1,7 @@
+main:has(#unsubscribe) {
+  width: min(500px, 100%);
+}
+
 .character-btn {
   position: absolute;
   top: 0;
@@ -25,7 +29,9 @@
   animation: confettiDrop linear forwards;
 }
 
-.input-error { background-color: red; }
+.input-error {
+  background-color: red;
+}
 
 @keyframes buttonDrop {
   to {
