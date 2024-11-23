@@ -60,10 +60,19 @@ export default function Terms() {
   const TERMS = document.createElement("div");
   TERMS.classList.add("terms");
 
+  const pageTitle = document.createElement("h1");
+  pageTitle.innerText = "TOS Typer";
+  TERMS.appendChild(pageTitle);
+  const description = document.createElement("p");
+  description.className = "terms-description";
+  description.innerText =
+    "The TOS Typer component ensures your users not only read but truly internalize your Terms of Service. This high-engagement, no-shortcuts-required feature makes users re-type your entire TOS, word for word, letter by letter.";
+  TERMS.appendChild(description);
+
   const termsWindow = document.createElement("div");
   termsWindow.classList.add("terms-window");
 
-  const title = document.createElement("h1");
+  const title = document.createElement("h2");
   title.innerText = "Terms of Service";
   termsWindow.appendChild(title);
 
@@ -88,7 +97,7 @@ export default function Terms() {
   messageTextarea.innerText = message;
 
   const termsButton = document.createElement("button");
-  termsButton.innerText = "Agree";
+  termsButton.innerText = "Agree & Continue";
   termsButton.disabled = true;
   termsButton.addEventListener("click", handleAccept);
 
