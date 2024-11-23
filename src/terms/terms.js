@@ -28,6 +28,11 @@ function resetTextarea(e) {
   createOopsMessage();
 }
 
+function handlePaste(e) {
+  e.preventDefault();
+  resetTextarea(e);
+}
+
 function handleInput(e) {
   const acceptButton = document.querySelector(".terms-window button");
   const inputChar = e.target.value.charAt(charIndex);
@@ -73,6 +78,8 @@ export default function Terms() {
   const typingTextarea = document.createElement("textarea");
   typingTextarea.classList.add("terms-content-typing");
   typingTextarea.addEventListener("input", handleInput);
+  typingTextarea.addEventListener("paste", handlePaste);
+
   typingTextarea.autofocus = true;
   typingTextarea.maxLength = message.length;
 
