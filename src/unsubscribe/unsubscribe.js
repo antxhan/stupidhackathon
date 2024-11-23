@@ -1,3 +1,5 @@
+import "./unsubscribe.css";
+
 export default function Unsubscribe() {
   const main = document.querySelector("main");
   const unsubscribe = document.createElement("div");
@@ -15,6 +17,7 @@ export default function Unsubscribe() {
       <input type="text" id="unsubscribeInput" readonly>
       <p id="errorMessage" style="color: red;"></p>
     </form>
+    <div id="confetti"></div>
     `;
   deleteButton.textContent = "Delete";
 
@@ -46,6 +49,10 @@ function typeCharacter(character) {
   } else {
     // Clear the error message if the input is correct
     errorMessage.textContent = "";
+    if (inputField.value === matchValue) {
+      // Show celebration if the input matches the matchValue
+      launchConfetti();
+    }
   }
 }
 
@@ -54,4 +61,20 @@ function deleteCharacter() {
   inputField.value = inputField.value.slice(0, -1);
   const errorMessage = document.getElementById("errorMessage");
   errorMessage.textContent = ""; // Clear the error message when a character is deleted
+}
+
+function launchConfetti() {
+  const confettiContainer = document.getElementById("confetti");
+  confettiContainer.innerHTML = "";
+  for (let i = 0; i < 100; i++) {
+    const confettiPiece = document.createElement("div");
+    confettiPiece.classList.add("confetti-piece");
+    confettiPiece.style.left = `${Math.random() * 100}%`;
+    confettiPiece.style.transform = `rotateY(${Math.random() * 360 * 100}deg)`;
+    confettiPiece.style.animationDuration = `${Math.random() * 3 + 2}s`;
+    confettiPiece.style.backgroundColor = `hsl(${
+      Math.random() * 360
+    }, 100%, 50%)`;
+    confettiContainer.appendChild(confettiPiece);
+  }
 }
