@@ -5,11 +5,27 @@ const message = "Hello";
 
 function handleAccept() {}
 
+function createOopsMessage() {
+  const existingOopsMessage = document.querySelector(".oops");
+  if (existingOopsMessage) {
+    existingOopsMessage.remove();
+  }
+  const termsWindow = document.querySelector(".terms-window");
+  const oopsMessage = document.createElement("span");
+  oopsMessage.innerText = "Oops!";
+  oopsMessage.classList.add("oops");
+  termsWindow.appendChild(oopsMessage);
+  setTimeout(() => {
+    oopsMessage.remove();
+  }, 1000);
+}
+
 function resetTextarea(e) {
   const acceptButton = document.querySelector(".terms-window button");
   acceptButton.disabled = true;
   charIndex = 0;
   e.target.value = "";
+  createOopsMessage();
 }
 
 function handleInput(e) {
@@ -46,6 +62,11 @@ export default function Terms() {
   title.innerText = "Terms of Service";
   termsWindow.appendChild(title);
 
+  const paragraph = document.createElement("p");
+  paragraph.innerText =
+    "Please re-type the message below. If you make a typo, it will be reset.";
+  termsWindow.appendChild(paragraph);
+
   const termsContent = document.createElement("div");
   termsContent.classList.add("terms-content");
 
@@ -53,6 +74,7 @@ export default function Terms() {
   typingTextarea.classList.add("terms-content-typing");
   typingTextarea.addEventListener("input", handleInput);
   typingTextarea.autofocus = true;
+  typingTextarea.maxLength = message.length;
 
   const messageTextarea = document.createElement("textarea");
   messageTextarea.classList.add("terms-content-message");

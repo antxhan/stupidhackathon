@@ -23,9 +23,6 @@
     }
     .terms-content-message {
       color: var(--clr-neutral-500);
-      /* z-index: -1; */
-      /* background-color: white; */
-      /* color: black; */
     }
   }
 }
