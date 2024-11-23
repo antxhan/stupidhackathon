@@ -80,6 +80,7 @@ function startButtonDropping() {
     const characters = ["a", "b", "c", "A", "B", "C", "1", "2", "3"];
     const character = characters[Math.floor(Math.random() * characters.length)];
     const button = document.createElement("button");
+    button.classList.add("character-btn");
     button.textContent = character;
     button.onclick = () => {
       typeCharacter(character);
