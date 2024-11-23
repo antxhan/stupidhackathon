@@ -1,7 +1,8 @@
 import "./terms.css";
 
 let charIndex = 0;
-const message = "Hello";
+const message =
+  "Welcome to Stupid Components, where our components are as absurd as they are functional. By using our site, you agree to use our stupid components responsibly—and, ideally, in stupid ways. We’re not responsible if your website becomes too stupid or causes minor chaos. No guarantees of usability, stability, or general common sense are provided (obviously). You may not use our components for illegal, harmful, or excessively intelligent purposes. Stupid Components reserves the right to remain unapologetically stupid at all times. By continuing, you accept these terms with a sense of humor and a dash of irony. Enjoy the stupidity!";
 
 function handleAccept() {}
 
