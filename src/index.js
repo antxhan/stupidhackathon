@@ -1,11 +1,11 @@
 import "./global.css";
 import Terms from "./terms/terms";
+import Unsubscribe from "./unsubscribe/unsubscribe";
 
 const MAIN = document.querySelector("main");
-   
+
 const image = document.createElement("image");
-image.src = peepo-giggle-peepo;
-   
+
 document.body.appendChild(image);
 
 document.querySelectorAll("nav ul li button").forEach((button) => {
@@ -19,12 +19,10 @@ document.querySelectorAll("nav ul li button").forEach((button) => {
         MAIN.innerHTML = "";
         Terms();
       }
-      if (button.value === "") {
+      if (button.value === "unsubscribe") {
         MAIN.innerHTML = "";
-        // MAIN.innerHTML = Kevin();
+        Unsubscribe();
       }
     }
   });
 });
-
-// MAIN.innerHTML = Projects();

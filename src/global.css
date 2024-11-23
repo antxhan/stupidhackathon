@@ -1,16 +1,49 @@
+:root {
+  --clr-neutral-500: rgb(93, 93, 93);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
-    background-color: #002fa7;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
+  background-color: #002fa7;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
 }
 
 h1 {
-    font-size: 40px;
-    text-align: center;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: whitesmoke;
+  font-size: 40px;
+  text-align: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: whitesmoke;
+}
+
+nav {
+  ul {
+    list-style: none;
+    display: flex;
+  }
+}
+
+.logo {
+  h1 {
+    line-height: 1;
+  }
+  img {
+    width: 5rem;
+    aspect-ratio: 1;
+    margin-bottom: 1rem;
+  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
