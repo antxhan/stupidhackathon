@@ -22,4 +22,4 @@ document.querySelectorAll("nav ul li button").forEach((button) => {
   });
 });
 
-// MAIN.innerHTML = Projects();
+Terms();
